@@ -13,8 +13,7 @@ protocol CountryListViewModel {
 }
 
 final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, CountryListViewModel {
-    // TODO: Replace dummy data
-    private var countries: [String] = ["Sweden", "Switzerland", "Slovakia"]
+    private var countries: [String] = []
     private let tableView: UITableView
     
     init(tableView: UITableView) {
