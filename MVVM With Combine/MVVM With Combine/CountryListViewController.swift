@@ -7,17 +7,15 @@
 
 import UIKit
 
-class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CountryListViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    lazy var countryDelegate = CountryListDelegate(tableView: tableView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        tableView.delegate = countryDelegate
+        tableView.dataSource = countryDelegate
     }
 }

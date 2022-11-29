@@ -13,6 +13,8 @@
 		94E7BBB129360F930022A622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E7BBB029360F930022A622 /* Assets.xcassets */; };
 		94E7BBB429360F930022A622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E7BBB229360F930022A622 /* LaunchScreen.storyboard */; };
 		94E7BBBC293612A40022A622 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7BBBB293612A40022A622 /* CountryListViewController.swift */; };
+		94E7BBBE29361BDD0022A622 /* CountryListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7BBBD29361BDD0022A622 /* CountryListDelegate.swift */; };
+		94E7BBC029361EEE0022A622 /* CountyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7BBBF29361EEE0022A622 /* CountyCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		94E7BBB329360F930022A622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94E7BBB529360F930022A622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E7BBBB293612A40022A622 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		94E7BBBD29361BDD0022A622 /* CountryListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListDelegate.swift; sourceTree = "<group>"; };
+		94E7BBBF29361EEE0022A622 /* CountyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountyCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				94E7BBA729360F920022A622 /* AppDelegate.swift */,
 				94E7BBA929360F920022A622 /* SceneDelegate.swift */,
 				94E7BBBB293612A40022A622 /* CountryListViewController.swift */,
+				94E7BBBD29361BDD0022A622 /* CountryListDelegate.swift */,
+				94E7BBBF29361EEE0022A622 /* CountyCellView.swift */,
 				94E7BBAD29360F920022A622 /* Main.storyboard */,
 				94E7BBB029360F930022A622 /* Assets.xcassets */,
 				94E7BBB229360F930022A622 /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 				94E7BBBC293612A40022A622 /* CountryListViewController.swift in Sources */,
 				94E7BBA829360F920022A622 /* AppDelegate.swift in Sources */,
 				94E7BBAA29360F920022A622 /* SceneDelegate.swift in Sources */,
+				94E7BBBE29361BDD0022A622 /* CountryListDelegate.swift in Sources */,
+				94E7BBC029361EEE0022A622 /* CountyCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
