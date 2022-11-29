@@ -8,16 +8,19 @@
 import UIKit
 
 protocol CountryListViewModel {
-    init(tableView: UITableView)
+    init(tableView: UITableView, networkManager: NetworkManager)
     func reloadData()
+    func fetchCountries()
 }
 
 final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, CountryListViewModel {
     private var countries: [String] = []
     private let tableView: UITableView
+    private let networkManager: NetworkManager
     
-    init(tableView: UITableView) {
+    init(tableView: UITableView, networkManager: NetworkManager) {
         self.tableView = tableView
+        self.networkManager = networkManager
         super.init()
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -35,5 +38,10 @@ final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableV
     
     func reloadData() {
         tableView.reloadData()
+    }
+    
+    func fetchCountries() {
+        networkManager.fetchCountries()
+        // TODO: Reload table view when data are fetched.
     }
 }
