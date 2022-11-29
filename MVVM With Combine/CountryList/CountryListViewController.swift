@@ -18,7 +18,7 @@ class CountryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countryDelegate.reloadData()
+        countryDelegate.reloadTable()
         countryDelegate.fetchCountries()
     }
 }

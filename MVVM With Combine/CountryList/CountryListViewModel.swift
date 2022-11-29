@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import SwiftUI
+import Combine
 
 protocol CountryListViewModel {
     init(tableView: UITableView, networkManager: NetworkManager)
-    func reloadData()
+    func reloadTable()
     func fetchCountries()
 }
 
 final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, CountryListViewModel {
-    private var countries: [String] = []
+    @State private var countries: [String] = []
     private let tableView: UITableView
     private let networkManager: NetworkManager
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(tableView: UITableView, networkManager: NetworkManager) {
         self.tableView = tableView
@@ -24,6 +28,12 @@ final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableV
         super.init()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        $countries.publisher
+            .sink(receiveValue: { [weak self] _ in
+                self?.reloadTable()
+            })
+            .store(in: &cancellables)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +46,7 @@ final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableV
         return cell
     }
     
-    func reloadData() {
+    func reloadTable() {
         tableView.reloadData()
     }
     
