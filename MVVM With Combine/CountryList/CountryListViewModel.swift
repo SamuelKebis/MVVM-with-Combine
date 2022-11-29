@@ -51,7 +51,13 @@ final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableV
     }
     
     func fetchCountries() {
-        networkManager.fetchCountries()
-        // TODO: Reload table view when data are fetched.
+        networkManager
+            .fetchCountries()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in
+            }, receiveValue: { [weak self] countries in
+                self?.countries = countries
+            })
+            .store(in: &cancellables)
     }
 }
