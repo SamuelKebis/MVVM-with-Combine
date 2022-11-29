@@ -62,15 +62,23 @@
 			children = (
 				94E7BBA729360F920022A622 /* AppDelegate.swift */,
 				94E7BBA929360F920022A622 /* SceneDelegate.swift */,
-				94E7BBBB293612A40022A622 /* CountryListViewController.swift */,
-				94E7BBBD29361BDD0022A622 /* CountryListDelegate.swift */,
-				94E7BBBF29361EEE0022A622 /* CountyCellView.swift */,
+				94E7BBC129362F780022A622 /* CountryList */,
 				94E7BBAD29360F920022A622 /* Main.storyboard */,
 				94E7BBB029360F930022A622 /* Assets.xcassets */,
 				94E7BBB229360F930022A622 /* LaunchScreen.storyboard */,
 				94E7BBB529360F930022A622 /* Info.plist */,
 			);
 			path = "MVVM With Combine";
+			sourceTree = "<group>";
+		};
+		94E7BBC129362F780022A622 /* CountryList */ = {
+			isa = PBXGroup;
+			children = (
+				94E7BBBB293612A40022A622 /* CountryListViewController.swift */,
+				94E7BBBD29361BDD0022A622 /* CountryListDelegate.swift */,
+				94E7BBBF29361EEE0022A622 /* CountyCellView.swift */,
+			);
+			path = CountryList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
