@@ -11,11 +11,10 @@ class CountryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var countryDelegate = CountryListDelegate(tableView: tableView)
+    lazy var countryDelegate: CountryListViewModel = DefaultCountryListViewModel(tableView: tableView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = countryDelegate
-        tableView.dataSource = countryDelegate
+        countryDelegate.reloadData()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CountryListDelegate.swift
+//  CountryListViewModel.swift
 //  MVVM With Combine
 //
 //  Created by Samuel Kebis on 29/11/2022.
@@ -7,13 +7,20 @@
 
 import UIKit
 
-class CountryListDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
-    // TODO: Replace dummy data
-    private var countries: [String] = ["Sweden", "Switzerland", "Slovakia"]
+protocol CountryListViewModel {
+    init(tableView: UITableView)
+    func reloadData()
+}
+
+final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, CountryListViewModel {
+    private var countries: [String] = []
     private let tableView: UITableView
     
     init(tableView: UITableView) {
         self.tableView = tableView
+        super.init()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,5 +31,9 @@ class CountryListDelegate: NSObject, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "country_cell") as! CountyCellView
         cell.titleLabel.text = countries[indexPath.row]
         return cell
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
 }
