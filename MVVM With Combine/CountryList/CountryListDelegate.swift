@@ -14,6 +14,9 @@ class CountryListDelegate: NSObject, UITableViewDelegate, UITableViewDataSource 
     
     init(tableView: UITableView) {
         self.tableView = tableView
+        super.init()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

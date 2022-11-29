@@ -15,7 +15,5 @@ class CountryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = countryDelegate
-        tableView.dataSource = countryDelegate
     }
 }
