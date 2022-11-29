@@ -16,7 +16,7 @@ protocol CountryListViewModel {
 }
 
 final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, CountryListViewModel {
-    @State private var countries: [String] = []
+    private var countries: [String] = []
     private let tableView: UITableView
     private let networkManager: NetworkManager
     
@@ -28,12 +28,6 @@ final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableV
         super.init()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        $countries.publisher
-            .sink(receiveValue: { [weak self] _ in
-                self?.reloadTable()
-            })
-            .store(in: &cancellables)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +51,7 @@ final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableV
             .sink(receiveCompletion: { _ in
             }, receiveValue: { [weak self] countries in
                 self?.countries = countries
+                self?.reloadTable()
             })
             .store(in: &cancellables)
     }
