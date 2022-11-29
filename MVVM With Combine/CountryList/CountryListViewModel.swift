@@ -1,5 +1,5 @@
 //
-//  CountryListDelegate.swift
+//  CountryListViewModel.swift
 //  MVVM With Combine
 //
 //  Created by Samuel Kebis on 29/11/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CountryListDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
+class CountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource {
     // TODO: Replace dummy data
     private var countries: [String] = ["Sweden", "Switzerland", "Slovakia"]
     private let tableView: UITableView

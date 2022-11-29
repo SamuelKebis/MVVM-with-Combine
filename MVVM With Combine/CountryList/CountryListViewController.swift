@@ -11,7 +11,7 @@ class CountryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var countryDelegate = CountryListDelegate(tableView: tableView)
+    lazy var countryDelegate = CountryListViewModel(tableView: tableView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
