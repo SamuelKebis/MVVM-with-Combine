@@ -7,7 +7,12 @@
 
 import UIKit
 
-class CountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource {
+protocol CountryListViewModel {
+    init(tableView: UITableView)
+    func reloadData()
+}
+
+final class DefaultCountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource, CountryListViewModel {
     // TODO: Replace dummy data
     private var countries: [String] = ["Sweden", "Switzerland", "Slovakia"]
     private let tableView: UITableView
@@ -27,5 +32,9 @@ class CountryListViewModel: NSObject, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "country_cell") as! CountyCellView
         cell.titleLabel.text = countries[indexPath.row]
         return cell
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
 }
