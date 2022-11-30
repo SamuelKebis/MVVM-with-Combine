@@ -13,11 +13,19 @@ protocol NetworkManager {
 }
 
 class DefaultNetworkManager: NetworkManager {
+    
+    private let baseUrl = "https://api.json-generator.com"
+    
     func fetchCountries<T: Decodable>() -> AnyPublisher<T, Error> {
-        guard let url = URL(string: "https://api.json-generator.com/templates/GlOxEqjDIq8M/data") else {
-            fatalError("Could not create url")
+        let routPath = "/templates/GlOxEqjDIq8M/data"
+        let path = baseUrl + routPath
+        
+        guard let url = URL(string: path),
+              let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else {
+            fatalError("Could not create url or access API key.")
         }
-        let personalToken = "Bearer 5x7rw1qzuivd5udglbk2rhf7y423dqctwq2913h6"
+        
+        let personalToken = "Bearer " + apiKey
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
